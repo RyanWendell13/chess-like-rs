@@ -1,0 +1,81 @@
+<html lang='en'>
+    <head>
+        <meta charSet="UTF-8"/>
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="description" content="Chess-like games"/>
+        <meta name="keywords" content="Chess, Chess-like, Latrunculi, Tafl, Tablut, Brandubh, Tawlbwrdd"/>
+        <meta name="author" content="Ryan Wendell"/>
+        <meta name="viewport" content="width=1000"/>
+        <title>{data.name}</title>
+        <link rel="stylesheet" href="/static/style.css"/>
+    </head>
+    <body>
+        <div  id='GameButtons'>
+            <a href='/'>
+                <button id='Back'>Back</button>
+            </a>
+            <button id="Restart" onClick="NewGame()">
+                <img src="/static/images/ReloadIcon.png" alt="Restart Button"/>
+            </button>
+            </div>
+            <main>
+                <h1 id="PlayerTwoText">Player Two</h1>
+
+                <div id="Board">
+                    <div id="WinPopup">
+                        <h1 id="WinText">Player One Won</h1>
+                        <button id = 'NewGameButton'onClick="NewGame()">New Game</button>
+                    </div>
+                </div>
+                <h1 id="PlayerOneText">Player One</h1>
+            </main>
+            <div id="Guide">
+                <h1>Guide</h1>
+                <div id="Instructions">
+                    {% for instruction in data.instructions %}
+                        {{instruction}}
+                    {% endfor %}
+                </div>
+                <div id="Pieces">
+                    <h2>Pieces</h2>
+                    <div id="Images">
+                        {% for piece in data.pieces %}
+                            <div>
+                                <h4>{{piece.name}}</h4>
+                                {% for image in piece.images%}
+                                    <img src="/static/{{image}}" alt={{ piece.name }}></img>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div id="Tiles">
+                    <h2>Tile Colors</h2>
+                    <div id="TileImages">
+                        {% for tile in data.tiles %}
+                            <div>
+                                <h4>{{ tile.name }}</h4>
+                                <div id='TileColor' style="background-color: {{ tile.color }};"></div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% if issues_len > 0 %}
+                    <div id="Issues">
+                        <h2>Issues</h2>
+                        {% for issue in data.issues %}
+                            <p>{{ issue }}</p>
+                        {% endfor %}
+                    </div>  
+                {% endif %}
+            </div>
+        </body>
+        <script src="/static/js/common/Board.js"></script>
+        <script src="/static/js/common/PieceInfo.js"></script>
+        <script src="/static/js/common/Move.js"></script>
+        <script src="/static/js/common/Vector2.js"></script>
+        <script src="/static/js/common/Tile.js"></script>
+        <script src="/static/js/common/Piece.js"></script>
+        <script src="/static/js/common/Game.js"></script>
+        <script src="/static{{ data.script }}"></script>
+    </html>

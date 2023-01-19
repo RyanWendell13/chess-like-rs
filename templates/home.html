@@ -1,0 +1,53 @@
+<html lang='en'>
+    <head>
+        <meta charSet="UTF-8"/>
+        <meta name="description" content="Chess-like games"/>
+        <meta name="keywords" content="Chess, Chess-like, Latrunculi, Tafl, Tablut, Brandubh, Tawlbwrdd"/>
+        <meta name="author" content="Ryan Wendell"/>
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=1000"/>
+        <title>Chess-like</title>
+        <link rel="stylesheet" href="/static/style.css"/>
+    </head>
+    <body>
+        <main>
+            <header>
+                <div id='WebsiteInfo'>
+                    <h1>Chess-Like Games</h1>
+                    <p>Welcome, here are a couple of games that are like Chess, including Chess.</p>
+                </div>
+            </header>
+            {% for category in data %}
+                {% if category.name != "None" %}
+                    <div id = 'Chunk'>
+                        <h2>{{ category.name }}</h2>
+                        <p>{{ category.description }}</p>
+                        {% for game in category.games %}
+                            <div id='SubChunk'>
+                                <h3>{{ game.name }}</h3>
+                                <p>{{ game.subtitle }}</p>
+                                <a href="/games/{{ game.name }}">
+                                    <button>Play</button>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+            {% for category in data %}
+                {% if category.name == "None" %}
+                    {% for game in category.games %}
+                        <div id = 'Chunk'>
+                            <h3>{{ game.name }}</h3>
+                            <p>{{ game.subtitle }}</p>
+                            <a href="/games/{{ game.name }}">
+                                <button>Play</button>
+                            </a>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </main>
+    </body>
+</html>

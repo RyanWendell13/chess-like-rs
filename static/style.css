@@ -1,0 +1,211 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+
+body{
+    margin: 0;
+    
+}
+
+img{
+    image-rendering: pixelated;
+}
+
+button{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0;
+    color: black;
+    width: 80px;
+    height: 35px;
+    font-size: large;
+    letter-spacing: .2em;
+    border: solid black;
+}
+button:hover {
+    background-color: #BBB;
+  }
+button:active{
+    background-color: #555;
+}
+
+
+header{
+
+    padding-top: 5px;
+    padding-bottom: 20px;
+    color: white;
+    background-color: brown;
+    margin-bottom: 20px;
+}
+
+header>*{
+    margin-left: 20px;
+}
+
+
+#Chunk{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    background-color: #333;
+    padding-top: 5px;
+    padding-bottom: 20px;
+    border-color: black;
+    border-style: solid;
+    border-width: 6px;
+}
+#Chunk>*{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    color: white;
+}
+
+#SubChunk{
+    margin-left: 50px;
+    margin-bottom: 50px;
+}
+
+#GameButtons {
+    position: absolute;
+    margin-left: 10px;
+    margin-top: -20px;
+    text-align: center;
+}
+
+#GameButtons > * {
+    margin-bottom: 5px;
+    display: block;
+}
+
+#Restart, #Back{
+    width: 70px;
+    height: 40px;
+}
+
+#Game > p{
+    margin-top: 0px;
+    font-size: .90em;
+}
+
+
+#PlayerOneText, #PlayerTwoText{
+    color: white;
+    background-color: brown;
+    text-align: center;
+    width: 180px;
+    height: 50px;
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-top: 30px;
+    padding-top: 7px;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 6px;
+}
+
+
+#Board{
+    background-color: brown;
+    height: 500px;
+    width: 500px;
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-top: 20px;
+}
+
+#WinPopup{
+    visibility: hidden;
+    height: 125px;
+    width: 275px;
+    z-index: 100;
+    position: absolute;
+    text-align: center;
+    margin-top: 160px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: brown;
+}
+
+#WinPopup h1{
+    margin: 0 auto;
+    margin-top:10px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+#WinPopup button{
+    margin: 0 auto;
+    margin-bottom: 15px;
+    width: 125px;
+    height: 50px;
+}
+
+#Guide{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 700px;
+    height: auto;
+    margin-top: 50px;
+    background-color: #333;
+    border-style: solid;
+    border-width: 6px;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+#Guide > *{
+    color: white;
+}
+
+#Instructions{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#TileColor{
+    text-align: center;
+    width: 30px;
+    height: 30px;
+}
+
+#Issues{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#Images{
+    text-align: center;
+}
+
+#TileImages{
+    margin-left: 10px;
+}
+
+
+#Popup{
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background-color: white;
+    text-align: center;
+    width: 100vw;
+    height: 100vw;
+}
+#Popup > *{
+    margin-top: 100px;
+}
+#Popup > a > button{
+    width: 300px;
+    height: 200px;
+    font-size: x-large;
+}
