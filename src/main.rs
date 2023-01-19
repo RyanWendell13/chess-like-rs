@@ -1,8 +1,7 @@
-use std::{collections::{HashMap}, result};
-use actix_web::{get, post, web::{self, Data}, App, HttpResponse, HttpServer, Responder};
+use actix_web::{get, web::{self, Data}, App, HttpResponse, HttpServer, Responder};
 use futures::StreamExt;
 use tera::{Tera, Context};
-use mongodb::{self, Client, bson::{doc, bson, Bson, Document, self}, options::FindOptions, Collection, Cursor};
+use mongodb::{self, Client, bson::{doc, Bson, Document, self}, Collection, Cursor};
 use dotenv::dotenv;
 use actix_files::Files;
 
@@ -46,7 +45,6 @@ async fn game(name: web::Path<String>, tera: web::Data<Tera>) -> impl Responder 
     let filter = doc! {"name" : name.to_string()};
     let result = collection.find_one(filter, None).await.unwrap().unwrap();
     let data: Game = bson::from_bson(Bson::Document(result)).unwrap();
-    println!("{:?}", data);
     let mut context = Context::new();
     context.insert("issues_len", &data.issues.len());
     context.insert("data", &data);
@@ -65,6 +63,7 @@ async fn main() -> std::io::Result<()> {
             ::std::process::exit(1);
         }
     };
+    println!("Listening on {}", std::env::var("PORT").unwrap());
     HttpServer::new(move || {
         App::new()
         .app_data(Data::new(tera.clone()))

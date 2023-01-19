@@ -1,11 +1,9 @@
 *{
     font-family: 'Times New Roman', Times, serif;
-    
 }
 
 body{
     margin: 0;
-    
 }
 
 img{
@@ -24,16 +22,16 @@ button{
     letter-spacing: .2em;
     border: solid black;
 }
+
 button:hover {
     background-color: #BBB;
-  }
+}
+
 button:active{
     background-color: #555;
 }
 
-
 header{
-
     padding-top: 5px;
     padding-bottom: 20px;
     color: white;
@@ -45,8 +43,7 @@ header>*{
     margin-left: 20px;
 }
 
-
-#Chunk{
+.chunk{
     width: 90%;
     margin-left: auto;
     margin-right: auto;
@@ -58,42 +55,41 @@ header>*{
     border-style: solid;
     border-width: 6px;
 }
-#Chunk>*{
+.chunk>*{
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 20px;
     color: white;
 }
 
-#SubChunk{
+.subChunk{
     margin-left: 50px;
     margin-bottom: 50px;
 }
 
-#GameButtons {
+.gameButtons {
     position: absolute;
     margin-left: 10px;
     margin-top: -20px;
     text-align: center;
 }
 
-#GameButtons > * {
+.gameButtons > * {
     margin-bottom: 5px;
     display: block;
 }
 
-#Restart, #Back{
+.restart, .back{
     width: 70px;
     height: 40px;
 }
 
-#Game > p{
+.game > p{
     margin-top: 0px;
     font-size: .90em;
 }
 
-
-#PlayerOneText, #PlayerTwoText{
+.playerOneText, .playerTwoText{
     color: white;
     background-color: brown;
     text-align: center;
@@ -108,8 +104,7 @@ header>*{
     border-width: 6px;
 }
 
-
-#Board{
+.board{
     background-color: brown;
     height: 500px;
     width: 500px;
@@ -118,7 +113,7 @@ header>*{
     margin-top: 20px;
 }
 
-#WinPopup{
+.winPopup{
     visibility: hidden;
     height: 125px;
     width: 275px;
@@ -133,21 +128,21 @@ header>*{
     background-color: brown;
 }
 
-#WinPopup h1{
+.winPopup>h1{
     margin: 0 auto;
     margin-top:10px;
     margin-bottom: 15px;
     color: white;
 }
 
-#WinPopup button{
+.winPopup>button{
     margin: 0 auto;
     margin-bottom: 15px;
     width: 125px;
     height: 50px;
 }
 
-#Guide{
+.guide{
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -163,36 +158,35 @@ header>*{
     margin-bottom: 20px;
 }
 
-#Guide > *{
+.guide > *{
     color: white;
 }
 
-#Instructions{
+.instructions{
     margin-left: 20px;
     margin-right: 20px;
 }
 
-#TileColor{
+.tileColor{
     text-align: center;
     width: 30px;
     height: 30px;
 }
 
-#Issues{
+.issues{
     margin-left: 20px;
     margin-right: 20px;
 }
 
-#Images{
+.images{
     text-align: center;
 }
 
-#TileImages{
+.tileImages{
     margin-left: 10px;
 }
 
-
-#Popup{
+.popup{
     position: absolute;
     width: 500px;
     height: 500px;
@@ -201,10 +195,10 @@ header>*{
     width: 100vw;
     height: 100vw;
 }
-#Popup > *{
+.popup > *{
     margin-top: 100px;
 }
-#Popup > a > button{
+.popup > a > button{
     width: 300px;
     height: 200px;
     font-size: x-large;

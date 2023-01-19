@@ -12,18 +12,18 @@
     <body>
         <main>
             <header>
-                <div id='WebsiteInfo'>
+                <div class='websiteInfo'>
                     <h1>Chess-Like Games</h1>
                     <p>Welcome, here are a couple of games that are like Chess, including Chess.</p>
                 </div>
             </header>
             {% for category in data %}
                 {% if category.name != "None" %}
-                    <div id = 'Chunk'>
+                    <div class = 'chunk'>
                         <h2>{{ category.name }}</h2>
                         <p>{{ category.description }}</p>
                         {% for game in category.games %}
-                            <div id='SubChunk'>
+                            <div class='subChunk'>
                                 <h3>{{ game.name }}</h3>
                                 <p>{{ game.subtitle }}</p>
                                 <a href="/games/{{ game.name }}">
@@ -38,7 +38,7 @@
             {% for category in data %}
                 {% if category.name == "None" %}
                     {% for game in category.games %}
-                        <div id = 'Chunk'>
+                        <div class = 'chunk'>
                             <h3>{{ game.name }}</h3>
                             <p>{{ game.subtitle }}</p>
                             <a href="/games/{{ game.name }}">
