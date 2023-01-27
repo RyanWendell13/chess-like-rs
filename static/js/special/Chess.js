@@ -1,9 +1,9 @@
-let pawn = new PieceInfo('pawn',['/static/images/Pawn.png'], 0, [new Move([new Vector2(0,1), new Vector2(0,1)], 'MoveOnly', false, false, true), new Move([new Vector2(0,1)], 'MoveOnly', false, false, false), new Move([new Vector2(1,1)], 'AttackOnly', false, false, false), new Move([new Vector2(-1,1)], 'AttackOnly', false, false, false)])
-let rook = new PieceInfo('rook',['/static/images/Rook.png'], 0, [new Move([new Vector2(0,1)], 'Standard', false, true, false),new Move([new Vector2(1,0)], 'Standard', false, true, false), new Move([new Vector2(0,-1)], 'Standard', false, true, false),new Move([new Vector2(-1,0)], 'Standard', false, true, false)])
-let knight = new PieceInfo('knight',['/static/images/Knight.png', '/static/images/KnightVariation.png'], 1, [new Move([new Vector2(1,2)], 'Standard', true, false, false),new Move([new Vector2(-1,2)], 'Standard', true, false, false),new Move([new Vector2(2,1)], 'Standard', true, false, false),new Move([new Vector2(2,-1)], 'Standard', true, false, false),new Move([new Vector2(1,-2)], 'Standard', true, false, false),new Move([new Vector2(-1,-2)], 'Standard', true, false, false),new Move([new Vector2(-2,1)], 'Standard', true, false, false),new Move([new Vector2(-2,-1)], 'Standard', true, false, false)])
-let bishop = new PieceInfo('bishop',['/static//images/Bishop.png'], 1, [new Move([new Vector2(1,1)], 'Standard', false, true, false),new Move([new Vector2(1,-1)], 'Standard', false, true, false), new Move([new Vector2(-1,-1)], 'Standard', false, true, false),new Move([new Vector2(-1,1)], 'Standard', false, true, false)])
-let queen = new PieceInfo('queen',['/static/images/Queen.png'], 0, [new Move([new Vector2(0,1)], 'Standard', false, true, false),new Move([new Vector2(1,1)], 'Standard', false, true, false),new Move([new Vector2(1,0)], 'Standard', false, true, false),new Move([new Vector2(1,-1)], 'Standard', false, true, false),new Move([new Vector2(0,-1)], 'Standard', false, true, false),new Move([new Vector2(-1,-1)], 'Standard', false, true, false),new Move([new Vector2(-1,0)], 'Standard', false, true, false),new Move([new Vector2(-1,1)], 'Standard', false, true, false)])
-let king = new PieceInfo('king',['/static/images/King.png'], 1, [new Move([new Vector2(0,1)], 'Standard', false, false, false),new Move([new Vector2(1,1)], 'Standard', false, false, false),new Move([new Vector2(1,0)], 'Standard', false, false, false),new Move([new Vector2(1,-1)], 'Standard', false, false, false),new Move([new Vector2(0,-1)], 'Standard', false, false, false),new Move([new Vector2(-1,-1)], 'Standard', false, false, false),new Move([new Vector2(-1,0)], 'Standard', false, false, false),new Move([new Vector2(-1,1)], 'Standard', false, false, false)])
+let pawn = new PieceInfo('pawn',['/images/Pawn.png'], 0, [new Move([new Vector2(0,1), new Vector2(0,1)], 'MoveOnly', false, false, true), new Move([new Vector2(0,1)], 'MoveOnly', false, false, false), new Move([new Vector2(1,1)], 'AttackOnly', false, false, false), new Move([new Vector2(-1,1)], 'AttackOnly', false, false, false)])
+let rook = new PieceInfo('rook',['/images/Rook.png'], 0, [new Move([new Vector2(0,1)], 'Standard', false, true, false),new Move([new Vector2(1,0)], 'Standard', false, true, false), new Move([new Vector2(0,-1)], 'Standard', false, true, false),new Move([new Vector2(-1,0)], 'Standard', false, true, false)])
+let knight = new PieceInfo('knight',['/images/Knight.png', '/images/KnightVariation.png'], 1, [new Move([new Vector2(1,2)], 'Standard', true, false, false),new Move([new Vector2(-1,2)], 'Standard', true, false, false),new Move([new Vector2(2,1)], 'Standard', true, false, false),new Move([new Vector2(2,-1)], 'Standard', true, false, false),new Move([new Vector2(1,-2)], 'Standard', true, false, false),new Move([new Vector2(-1,-2)], 'Standard', true, false, false),new Move([new Vector2(-2,1)], 'Standard', true, false, false),new Move([new Vector2(-2,-1)], 'Standard', true, false, false)])
+let bishop = new PieceInfo('bishop',['/images/Bishop.png'], 1, [new Move([new Vector2(1,1)], 'Standard', false, true, false),new Move([new Vector2(1,-1)], 'Standard', false, true, false), new Move([new Vector2(-1,-1)], 'Standard', false, true, false),new Move([new Vector2(-1,1)], 'Standard', false, true, false)])
+let queen = new PieceInfo('queen',['/images/Queen.png'], 0, [new Move([new Vector2(0,1)], 'Standard', false, true, false),new Move([new Vector2(1,1)], 'Standard', false, true, false),new Move([new Vector2(1,0)], 'Standard', false, true, false),new Move([new Vector2(1,-1)], 'Standard', false, true, false),new Move([new Vector2(0,-1)], 'Standard', false, true, false),new Move([new Vector2(-1,-1)], 'Standard', false, true, false),new Move([new Vector2(-1,0)], 'Standard', false, true, false),new Move([new Vector2(-1,1)], 'Standard', false, true, false)])
+let king = new PieceInfo('king',['/images/King.png'], 1, [new Move([new Vector2(0,1)], 'Standard', false, false, false),new Move([new Vector2(1,1)], 'Standard', false, false, false),new Move([new Vector2(1,0)], 'Standard', false, false, false),new Move([new Vector2(1,-1)], 'Standard', false, false, false),new Move([new Vector2(0,-1)], 'Standard', false, false, false),new Move([new Vector2(-1,-1)], 'Standard', false, false, false),new Move([new Vector2(-1,0)], 'Standard', false, false, false),new Move([new Vector2(-1,1)], 'Standard', false, false, false)])
 
 let board
 let whitePieces =Array()
@@ -31,6 +31,7 @@ function ExclusiveMoveChecks (piece,tile) {
 
     checkInfo = CheckForCheck(piece, currentTeamPieces, null, null)
 
+    console.log(checkInfo)
     if(checkInfo[0] == true){
         DrawCheck(piece, checkInfo)
         CheckForCheckMate(currentEnemyPieces)
@@ -92,7 +93,7 @@ function SetupPieces(){
 
 function CheckMove(i, invalidMove, tempMoves, piece, enemyPieces, newPos, colorTiles, runCheck){
     if(IsInsideBoard(newPos) && invalidMove == false){
-        if(runCheck == false || CheckForPossibleCheck(enemyPieces,piece.tile,board[newPos.x][newPos.y],i) == false){
+        if(true){
             if(board[newPos.x][newPos.y].piece != null){
                 if((enemyPieces.includes(board[newPos.x][newPos.y].piece) == false)){
                     return true
@@ -121,68 +122,12 @@ function CheckMove(i, invalidMove, tempMoves, piece, enemyPieces, newPos, colorT
     return false
 }
 
-//when a check is called this is run to see if any move is available
-function CheckForCheckMate(enemyPieces){
-    let allPossibleCheckedMoves = Array()
-    for(let i = 0; i < enemyPieces.length; i++){
-        allPossibleCheckedMoves.push(...enemyPieces[i].CalculatePossibleMoves(currentTeamPieces, false, false))
-    }
-    if(allPossibleCheckedMoves.length > 0){
-        return false
-    }
-    else{
-        Win()
-    }
-}
-
-//draws the check path
-function DrawCheck(piece, checkInfo){
-    let newPos = piece.tile.pos
-    board[newPos.x][newPos.y].element.style.backgroundColor = 'blue'
-    if(piece.info.moves[checkInfo[1]].isRepeating == true){
-        let invalidMove = false
-        while(invalidMove == false){
-            for(let i = 0; i < piece.info.moves[checkInfo[1]].iterators.length; i++){
-                newPos = new Vector2(newPos.x+piece.info.moves[checkInfo[1]].iterators[i].x*GetTeamModifier(piece),newPos.y+piece.info.moves[checkInfo[1]].iterators[i].y*GetTeamModifier(piece))
-                
-                if(IsInsideBoard(newPos) == true && invalidMove == false){
-                    board[newPos.x][newPos.y].element.style.backgroundColor = 'blue'
-                    if(board[newPos.x][newPos.y].piece != null && board[newPos.x][newPos.y].piece.info == king){
-                        invalidMove = true
-                    }
-                    
-                }
-                else{
-                    invalidMove = true
-                }
-            }
-        }
-    }
-    else{
-        let invalidMove = false
-        for(let i = 0; i < piece.info.moves[checkInfo[1]].iterators.length; i++){
-            newPos = new Vector2(newPos.x+piece.info.moves[checkInfo[1]].iterators[i].x*GetTeamModifier(piece),newPos.y+piece.info.moves[checkInfo[1]].iterators[i].y*GetTeamModifier(piece))
-            
-            if(IsInsideBoard(newPos) == true && invalidMove == false){
-                board[newPos.x][newPos.y].element.style.backgroundColor = 'blue'
-                if(board[newPos.x][newPos.y].piece != null && board[newPos.x][newPos.y].piece.info == king){
-                    invalidMove = true
-                }
-                
-            }
-            else{
-                invalidMove = true
-            }
-        }
-    }
-}
-
 //makes sure move won't check the king
 function CheckForPossibleCheck(enemyPieces, currentTile, futureTile, moveIndex){
     let capturedPiece = futureTile.piece
     futureTile.piece = currentTile.piece
     for(let i = 0; i < enemyPieces.length; i++){
-        if(futureTile != null && CanMoveTakeCheckingPiece(enemyPieces[i], currentTile.piece, futureTile, moveIndex) == false){
+        if(futureTile != null){
             if(CheckForCheck(enemyPieces[i], enemyPieces, currentTile, futureTile)[0] == true){
                 return true 
             }
@@ -235,10 +180,100 @@ function CanMoveTakeCheckingPiece(checkingPiece, attackPiece, futureTile, moveIn
     return false
 }
 
+
+
+// Check if the current player's king is in check: This can be done by 
+// checking if any of the opponent's pieces can attack the king's current position.
+
+// If the king is in check, check if the king has any legal moves: 
+// This can be done by generating a list of all possible moves for the king, 
+// and then checking if any of those moves would take the king out of check.
+
+// Check if any of the player's pieces can block the check or capture the attacking 
+// piece: This can be done by generating a list of all possible moves for the 
+// player's pieces and checking if any of those moves would block the check or 
+// capture the attacking piece.
+
+
+function CheckCheck(piece, pieceTeam, enemyPieces){
+
+}
+
+
+
+
 //used to check apporpriate movement with checks
-function CheckForCheck (piece, pieceTeam, currentTile, futureTile) {
-    let takenPiece = futureTile.piece
-    let tempEnemyTeam = enemyPieces.filter(p => p !== takenPiece)
+function CheckForCheck(piece, pieceTeam, currentTile, futureTile){
+    for(let j = 0; j < piece.info.moves.length; j++){
+        let newPos = piece.tile.pos
+        if(piece.info.moves[j].firstMove == false || piece.moved == false){
+            if(piece.info.moves[j].isRepeating == true){
+                let invalidMove = false
+                while (invalidMove == false){
+                    for(let k = 0; k < piece.info.moves[j].iterators.length; k++){
+                        newPos = new Vector2(newPos.x+piece.info.moves[j].iterators[k].x*GetTeamModifier(piece),newPos.y+piece.info.moves[j].iterators[k].y*GetTeamModifier(piece))
+                        if(IsInsideBoard(newPos) == true && invalidMove == false){
+                            if((board[newPos.x][newPos.y].piece != null && board[newPos.x][newPos.y] != currentTile)){
+                                if(pieceTeam.includes(board[newPos.x][newPos.y].piece) == false && board[newPos.x][newPos.y].piece.info == king){
+                                    if(piece.info.moves[j].type == 'Standard'|| piece.info.moves[j].type == 'AttackOnly'){
+                                        return [true, j]
+                                    }
+                                }
+                                else{
+                                    invalidMove = true
+                                }
+                            }
+                            else if(board[newPos.x][newPos.y] == futureTile){
+                                if(currentTile.piece != null && currentTile.piece.info == king){
+                                    if(piece.info.moves[j].type == 'Standard'|| piece.info.moves[j].type == 'AttackOnly'){
+                                        return [true, j]
+                                    }
+                                }
+                                else {
+                                    invalidMove = true
+                                }
+                            }
+                        }
+                        else{
+                            invalidMove = true
+                        }
+                    }
+                }
+            }
+            else{
+                let invalidMove = false
+                for(let k = 0; k < piece.info.moves[j].iterators.length; k++){
+                    newPos = new Vector2(newPos.x+piece.info.moves[j].iterators[k].x*GetTeamModifier(piece),newPos.y+piece.info.moves[j].iterators[k].y*GetTeamModifier(piece))
+                    if(IsInsideBoard(newPos) == true && invalidMove == false){
+                        if((board[newPos.x][newPos.y].piece != null && board[newPos.x][newPos.y] != currentTile)){
+                            if(pieceTeam.includes(board[newPos.x][newPos.y].piece) == false && board[newPos.x][newPos.y].piece.info == king){
+                                if(piece.info.moves[j].type == 'Standard'||piece.info.moves[j].type == 'AttackOnly'){
+                                    return [true, j]
+                                }
+                            }
+                            else{
+                                invalidMove = true
+                            }
+                        }
+                        else if(board[newPos.x][newPos.y] == futureTile){
+                            if(currentTile.piece != null && currentTile.piece.info == king){
+                                if(piece.info.moves[j].type == 'Standard'||piece.info.moves[j].type == 'AttackOnly'){
+                                    return [true, j]
+                                }
+                            }
+                            else {
+                                invalidMove = true
+                            }
+                        }
+                    }
+                    else{
+                        invalidMove = true
+                    }
+                }
+            }
+        }
+    }
+    return [false, 0]
 }
 
 Main()

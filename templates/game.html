@@ -6,8 +6,17 @@
         <meta name="keywords" content="Chess, Chess-like, Latrunculi, Tafl, Tablut, Brandubh, Tawlbwrdd"/>
         <meta name="author" content="Ryan Wendell"/>
         <meta name="viewport" content="width=1000"/>
-        <title>{data.name}</title>
-        <link rel="stylesheet" href="/static/style.css"/>
+        <title>{{ data.name }}</title>
+        <link rel="stylesheet" href="/style.css"/>
+
+        <script src='/js/common/Board.js' defer></script>
+        <script src="/js/common/PieceInfo.js" defer></script>
+        <script src="/js/common/Move.js" defer></script>
+        <script src="/js/common/Vector2.js" defer></script>
+        <script src="/js/common/Tile.js" defer></script>
+        <script src="/js/common/Piece.js" defer></script>
+        <script src="/js/common/Game.js" defer></script>
+        <script src={{ data.script }} defer></script>
     </head>
     <body>
         <div  class='gameButtons'>
@@ -15,7 +24,7 @@
                 <button class='back' id="Back">Back</button>
             </a>
             <button class="restart" id="Restart" onClick="NewGame()">
-                <img src="/static/images/ReloadIcon.png" alt="Restart Button"/>
+                <img src="/images/ReloadIcon.png" alt="Restart Button"/>
             </button>
             </div>
             <main>
@@ -43,7 +52,7 @@
                             <div>
                                 <h4>{{piece.name}}</h4>
                                 {% for image in piece.images%}
-                                    <img src="/static{{image}}" alt={{ piece.name }}></img>
+                                    <img src="{{ image }}" alt={{ piece.name }}></img>
                                 {% endfor %}
                             </div>
                         {% endfor %}
@@ -70,12 +79,5 @@
                 {% endif %}
             </div>
         </body>
-        <script src="/static/js/common/Board.js"></script>
-        <script src="/static/js/common/PieceInfo.js"></script>
-        <script src="/static/js/common/Move.js"></script>
-        <script src="/static/js/common/Vector2.js"></script>
-        <script src="/static/js/common/Tile.js"></script>
-        <script src="/static/js/common/Piece.js"></script>
-        <script src="/static/js/common/Game.js"></script>
-        <script src="/static{{ data.script }}"></script>
+        
     </html>

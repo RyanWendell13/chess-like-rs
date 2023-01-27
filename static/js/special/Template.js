@@ -1,4 +1,4 @@
-let temp = new PieceInfo('temp',['/static/images/temp.png'], 0, [new Move([new Vector2(0,1)], 'MoveOnly', false, true, false)])
+let temp = new PieceInfo('temp',['/images/temp.png'], 0, [new Move([new Vector2(0,1)], 'MoveOnly', false, true, false)])
 
 let board
 let whitePieces =Array()
