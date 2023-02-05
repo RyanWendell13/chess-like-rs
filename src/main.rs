@@ -1,7 +1,7 @@
 use actix_web::{get, web::{self, Data}, App, HttpResponse, HttpServer, Responder};
 use futures::StreamExt;
 use tera::{Tera, Context};
-use mongodb::{self, Client, bson::{doc, Bson, Document, self}, Collection, Cursor};
+use mongodb::{self, Client, bson::{doc, Bson, Document, self}, Collection, Cursor, options::FindOptions};
 use dotenv::dotenv;
 use actix_files::Files;
 
@@ -15,8 +15,8 @@ async fn home(tera: web::Data<Tera>) -> impl Responder {
     let client = Client::with_uri_str(mongo_uri).await.unwrap();
     let categories_collection: Collection<bson::Document> = client.database("chess-like").collection("categories");
     let games_collection: Collection<bson::Document> = client.database("chess-like").collection("games");
-
-    let mut category_cursor: Cursor<bson::Document> = categories_collection.find(None, None).await.unwrap();
+    let alphabetical_sort_option = FindOptions::builder().sort(doc! { "name": 1 }).build();
+    let mut category_cursor: Cursor<bson::Document> = categories_collection.find(None, alphabetical_sort_option).await.unwrap();
     let mut data: Vec<Category> = vec![];
     while let Some (result) = 
         category_cursor.next().await {
