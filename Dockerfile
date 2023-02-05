@@ -6,6 +6,6 @@ COPY ./Cargo.toml ./Cargo.toml
 COPY ./src ./src
 RUN cargo build --release
 
-FROM alpine:latest
+FROM ubuntu:latest
 COPY --from=builder /chess-like-rs/target/release/chess-like-rs ./chess-like-rs
 CMD ["./chess-like-rs"]
