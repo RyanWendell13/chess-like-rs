@@ -1,0 +1,7 @@
+#.dockerignore 
+.env
+README.md
+Dockerfile
+Cargo.lock
+target/
+.DS_Store
