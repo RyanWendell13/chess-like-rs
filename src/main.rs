@@ -1,3 +1,5 @@
+use std::fs;
+use walkdir::WalkDir;
 use actix_web::{get, web::{self, Data}, App, HttpResponse, HttpServer, Responder};
 use futures::StreamExt;
 use tera::{Tera, Context};
@@ -53,15 +55,49 @@ async fn game(name: web::Path<String>, tera: web::Data<Tera>) -> impl Responder 
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
+    println!("Starting");
     dotenv().ok();
-    
-    let tera = match Tera::new("templates/**/*") {
+
+    println!("Env variables loaded");
+    println!("PORT: {}, URI: {}", std::env::var("PORT").unwrap(), std::env::var("MONGO_URI").unwrap());
+
+    let mut templates: Vec<(String, String)> = Vec::new();
+
+    for file in WalkDir::new("./templates").into_iter().filter_map(|e| e.ok()) {
+        if file.metadata().unwrap().is_file() {
+            let template_name: String = file.path().file_name().unwrap().to_str().unwrap().to_string();
+            match fs::read_to_string(file.path()) {
+                Ok(template_raw) => {
+                    templates.push((template_name, template_raw));
+                }
+                Err(_) => {}
+            };
+        }
+    }
+
+
+
+
+    let mut tera: Tera = Tera::default();
+    match tera.add_raw_templates(templates) {
         Ok(t) => t,
         Err(e) => {
             println!("Parsing error(s): {}", e);
-            ::std::process::exit(1);
+            std::process::exit(1);
         }
     };
+
+    // Seems to cause an infinite loop when used with docker
+    // let tera = match Tera::new("./templates/**/*") {
+    //     Ok(t) => t,
+    //     Err(e) => {
+    //         println!("Parsing error(s): {}", e);
+    //         std::process::exit(1);
+    //     }
+    // };
+
+    println!("Templates loaded");
+
     println!("Listening on {}", std::env::var("PORT").unwrap());
     HttpServer::new(move || {
         App::new()
@@ -70,7 +106,7 @@ async fn main() -> std::io::Result<()> {
         .service(game)
         .service(Files::new("/", "static"))
     })
-    .bind(("127.0.0.1",std::env::var("PORT").expect("PORT must be set in .env file").parse::<u16>().unwrap()))?
+    .bind(("0.0.0.0",std::env::var("PORT").expect("PORT must be set in .env file").parse::<u16>().unwrap()))?
     .run()
     .await
 }
